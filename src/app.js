@@ -2,6 +2,12 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const session = require("express-session");
+const MongoStore = require('connect-mongo').default;
+
+
+
+
 
 dotenv.config();
 connectDB();
@@ -16,6 +22,26 @@ const app = express();
 
 // middleware
 app.use(express.json());
+
+
+
+// session creation
+app.use(
+    
+  session({
+    secret: "medical_lab_secret",
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+    }),
+    cookie: {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60, // 1 hour
+    },
+  })
+);
+
 // routes
 app.use("/api/auth", authRoutes);
 
