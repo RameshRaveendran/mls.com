@@ -17,7 +17,7 @@ const authRoutes = require("./routes/auth.routes");
 const testRoutes = require("./routes/test.routes");
 const ownerRoutes = require("./routes/owner.routes");
 const staffRoutes = require("./routes/staff.routes");
-
+const patientRoutes = require("./routes/patient.routes");
 
 
 
@@ -53,7 +53,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/test", testRoutes);
 app.use("/api/owner", ownerRoutes);
 app.use("/api/staff", staffRoutes);
-
+app.use("/api/patient", patientRoutes);
 
 
 // test route
