@@ -15,6 +15,7 @@ connectDB();
 // local requires
 const authRoutes = require("./routes/auth.routes");
 const testRoutes = require("./routes/test.routes");
+const ownerRoutes = require("./routes/owner.routes");
 
 
 
@@ -46,6 +47,7 @@ app.use(
 // routes
 app.use("/api/auth", authRoutes);
 app.use("/api/test", testRoutes);
+app.use("/api/owner", ownerRoutes);
 
 // test route
 app.get("/", (req, res) => {
