@@ -16,6 +16,10 @@ connectDB();
 const authRoutes = require("./routes/auth.routes");
 const testRoutes = require("./routes/test.routes");
 const ownerRoutes = require("./routes/owner.routes");
+const staffRoutes = require("./routes/staff.routes");
+
+
+
 
 
 
@@ -48,6 +52,9 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/test", testRoutes);
 app.use("/api/owner", ownerRoutes);
+app.use("/api/staff", staffRoutes);
+
+
 
 // test route
 app.get("/", (req, res) => {
